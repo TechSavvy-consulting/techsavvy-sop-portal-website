@@ -176,7 +176,28 @@ p { color: var(--muted); }
   background: rgba(255,255,255,.075);
   backdrop-filter: blur(10px);
 }
-.hero-metrics dt { margin-bottom: 8px; color: var(--teal); font-size: 28px; font-weight: 1000; letter-spacing: -.04em; }
+.hero-metrics dt { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: var(--teal); font-size: 28px; font-weight: 1000; letter-spacing: -.04em; }
+.metric-icon {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(50,224,208,.38);
+  border-radius: 14px;
+  color: var(--teal);
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.24), transparent 36%), rgba(50,224,208,.12);
+  box-shadow: 0 12px 28px rgba(50,224,208,.14);
+}
+.metric-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .hero-metrics dd { margin: 0; color: #cfe8e8; font-size: 14px; font-weight: 700; }
 .hero-product { position: relative; }
 .video-card {
