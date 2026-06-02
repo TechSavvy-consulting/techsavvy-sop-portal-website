@@ -431,7 +431,7 @@
             <span>Tulsa, Oklahoma</span>
           </div>
         </div>
-        <form class="contact-form" action="https://formspree.io/f/mykojwal" method="POST">
+        <form class="contact-form" action="https://formspree.io/f/mykojwal" method="POST" data-demo-form>
           <input type="hidden" name="_subject" value="TechSavvy SOP Portal demo request" />
           <input type="hidden" name="source" value="TechSavvy SOP Portal website" />
           <label>
@@ -461,8 +461,9 @@
             What do you want to improve first?
             <textarea name="message" rows="5" placeholder="Example: onboarding, QR access for workstation procedures, converting old SOPs, training accountability..." required></textarea>
           </label>
-          <button class="button primary" type="submit">Request demo</button>
+          <button class="button primary" type="submit" data-demo-submit>Request demo</button>
           <p class="form-note">This request is sent securely through TechSavvy's Formspree demo request form.</p>
+          <p class="form-status" aria-live="polite" data-demo-status hidden></p>
         </form>
       </section>
     </main>
