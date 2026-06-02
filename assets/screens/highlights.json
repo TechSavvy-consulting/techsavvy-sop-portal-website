@@ -1,0 +1,110 @@
+[
+  {
+    "file": "02-staff-overview.png",
+    "title": "Staff search dashboard",
+    "kicker": "Searchable SOPs",
+    "card": "Give employees one place to find approved procedures.",
+    "detail": "Staff can search, browse by section, pin important SOPs, and open the current instruction set without digging through old folders or asking a manager.",
+    "thumb": "assets/screens/thumbs/02-staff-overview.webp",
+    "src": "assets/screens/02-staff-overview.png"
+  },
+  {
+    "file": "14-staff-qr-link.png",
+    "title": "QR codes for mobile SOP access",
+    "kicker": "Mobile + QR",
+    "card": "Put the right instruction at the workstation, shelf, or equipment area.",
+    "detail": "QR links let staff scan from a phone or tablet and open the relevant SOP where the work is happening. It is built for office floors, service desks, equipment areas, and shared workstations.",
+    "thumb": "assets/screens/thumbs/14-staff-qr-link.webp",
+    "src": "assets/screens/14-staff-qr-link.png"
+  },
+  {
+    "file": "06-sop-generator.png",
+    "title": "AI-assisted SOP generator",
+    "kicker": "AI drafts",
+    "card": "Create a first draft from a business process description.",
+    "detail": "Managers can use AI-assisted drafting to turn rough descriptions into structured procedure content, then review and approve the SOP before staff see it.",
+    "thumb": "assets/screens/thumbs/06-sop-generator.webp",
+    "src": "assets/screens/06-sop-generator.png"
+  },
+  {
+    "file": "06-sop-import.png",
+    "title": "Import existing SOP content",
+    "kicker": "Existing docs",
+    "card": "Move current procedures into the portal instead of starting over.",
+    "detail": "Existing documents can be converted into organized SOP content so the business can modernize the library without rewriting everything from scratch.",
+    "thumb": "assets/screens/thumbs/06-sop-import.webp",
+    "src": "assets/screens/06-sop-import.png"
+  },
+  {
+    "file": "15-staff-checklist-run.png",
+    "title": "Checklist runs for repeatable work",
+    "kicker": "Checklist runs",
+    "card": "Turn recurring work into trackable task runs.",
+    "detail": "Checklist-style SOPs help staff complete repeatable work step by step, add notes, and leave a record that the task was performed.",
+    "thumb": "assets/screens/thumbs/15-staff-checklist-run.webp",
+    "src": "assets/screens/15-staff-checklist-run.png"
+  },
+  {
+    "file": "18-training-quiz-builder.png",
+    "title": "Training questions and quiz builder",
+    "kicker": "Training",
+    "card": "Build training checks into the procedure itself.",
+    "detail": "Managers can add questions for key SOPs so onboarding and recurring training include confirmation, not just a document link.",
+    "thumb": "assets/screens/thumbs/18-training-quiz-builder.webp",
+    "src": "assets/screens/18-training-quiz-builder.png"
+  },
+  {
+    "file": "18-training-runs.png",
+    "title": "Training completion records",
+    "kicker": "Accountability",
+    "card": "See who completed training and where follow-up is needed.",
+    "detail": "Training runs give managers a practical way to review completion history and confirm staff understanding of important procedures.",
+    "thumb": "assets/screens/thumbs/18-training-runs.webp",
+    "src": "assets/screens/18-training-runs.png"
+  },
+  {
+    "file": "10-change-requests.png",
+    "title": "Staff change requests",
+    "kicker": "Continuous improvement",
+    "card": "Let staff report unclear, outdated, or missing instructions.",
+    "detail": "Change requests keep the SOP library alive. Staff can flag improvements, while managers review and control what gets published.",
+    "thumb": "assets/screens/thumbs/10-change-requests.webp",
+    "src": "assets/screens/10-change-requests.png"
+  },
+  {
+    "file": "05-admin-dashboard.png",
+    "title": "Manager dashboard",
+    "kicker": "Manager control",
+    "card": "Monitor drafts, requests, training, backups, and portal health.",
+    "detail": "The manager dashboard centralizes administration so owners and managers can see what needs attention without hunting across separate tools.",
+    "thumb": "assets/screens/thumbs/05-admin-dashboard.webp",
+    "src": "assets/screens/05-admin-dashboard.png"
+  },
+  {
+    "file": "17-sop-assignment-roles.png",
+    "title": "Role-based SOP visibility",
+    "kicker": "Role access",
+    "card": "Show staff the SOPs relevant to their job.",
+    "detail": "Role visibility helps keep the portal focused. Staff can access procedures that matter to their department or responsibilities.",
+    "thumb": "assets/screens/thumbs/17-sop-assignment-roles.webp",
+    "src": "assets/screens/17-sop-assignment-roles.png"
+  },
+  {
+    "file": "12-brand-settings.png",
+    "title": "Branded customer portal settings",
+    "kicker": "Customer branded",
+    "card": "Make the portal feel like part of the customer\u2019s operation.",
+    "detail": "Brand settings let the portal reflect the customer\u2019s company name, portal name, colors, logo, and support details.",
+    "thumb": "assets/screens/thumbs/12-brand-settings.webp",
+    "src": "assets/screens/12-brand-settings.png"
+  },
+  {
+    "file": "16-backup-restore.png",
+    "title": "Backup and restore tools",
+    "kicker": "Data protection",
+    "card": "Keep portal data backed up and recoverable.",
+    "detail": "Backup and restore controls help protect the SOP library and support safer updates, testing, and customer maintenance workflows.",
+    "thumb": "assets/screens/thumbs/16-backup-restore.webp",
+    "src": "assets/screens/16-backup-restore.png"
+  }
+]
