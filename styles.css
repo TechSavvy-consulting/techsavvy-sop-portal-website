@@ -126,9 +126,9 @@ h1, h2, h3, p { margin-top: 0; }
 h1 {
   max-width: 850px;
   margin-bottom: 22px;
-  font-size: clamp(44px, 6.8vw, 86px);
-  line-height: .96;
-  letter-spacing: -.055em;
+  font-size: clamp(32px, 4.5vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -.045em;
 }
 h2 {
   margin-bottom: 18px;

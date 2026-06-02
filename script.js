@@ -7,6 +7,7 @@ const lightboxImage = document.querySelector("[data-lightbox-image]");
 const lightboxTitle = document.querySelector("[data-lightbox-title]");
 const lightboxKicker = document.querySelector("[data-lightbox-kicker]");
 const lightboxDetail = document.querySelector("[data-lightbox-detail]");
+const videos = Array.from(document.querySelectorAll("video"));
 let lastTrigger = null;
 
 if (year) year.textContent = new Date().getFullYear();
@@ -29,6 +30,20 @@ if (header) {
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 }
+
+function pauseOtherVideos(activeVideo = null) {
+  videos.forEach((video) => {
+    if (video !== activeVideo && !video.paused) video.pause();
+  });
+}
+
+videos.forEach((video) => {
+  video.addEventListener("play", () => pauseOtherVideos(video));
+});
+
+document.querySelectorAll('a[href="#video"]').forEach((link) => {
+  link.addEventListener("click", () => pauseOtherVideos());
+});
 
 function openLightbox(trigger) {
   if (!lightbox || !lightboxImage || !lightboxTitle || !lightboxKicker || !lightboxDetail) return;
