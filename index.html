@@ -47,6 +47,7 @@
       <nav class="site-nav" aria-label="Primary navigation" data-nav>
         <a href="#problem">Problem</a>
         <a href="#video">Video</a>
+        <a href="#demo">Demo</a>
         <a href="#features">Features</a>
         <a href="#screenshots">Screenshots</a>
         <a href="#plans">Plans</a>
@@ -67,6 +68,7 @@
             <div class="hero-actions" aria-label="Primary actions">
               <a class="button primary" href="#contact">Book a demo</a>
               <a class="button secondary" href="#video">Watch the video</a>
+              <button class="button ghost" type="button" data-demo-open>Explore demo</button>
             </div>
             <dl class="hero-metrics" aria-label="Primary benefits">
               <div>
@@ -177,6 +179,24 @@
             <source src="./assets/video/sop-portal-commercial.mp4" type="video/mp4" />
             <track src="./assets/video/sop-portal-commercial-captions.vtt" kind="captions" srclang="en" label="English captions" />
           </video>
+        </div>
+      </section>
+
+      <section class="section demo-section" id="demo" aria-labelledby="demo-title">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Interactive guided demo</p>
+            <h2 id="demo-title">Click through the staff and admin portal without logging in.</h2>
+          </div>
+          <p>Explore a screenshot-based tour created from a branded test portal. It shows the staff experience, SOP workflows, support requests, and the full manager admin area while keeping the real portal private.</p>
+        </div>
+        <div class="demo-card">
+          <div>
+            <span class="role-icon">Static product tour</span>
+            <h3>See the portal flow in context.</h3>
+            <p>Move through staff search, SOP details, QR codes, checklist runs, training, support, manager dashboards, users, branding, backups, and advanced tools.</p>
+          </div>
+          <button class="button primary" type="button" data-demo-open>Launch guided demo</button>
         </div>
       </section>
 
@@ -515,6 +535,33 @@
           <h2 id="lightbox-title" data-lightbox-title></h2>
           <p data-lightbox-detail></p>
           <button class="button secondary" type="button" data-lightbox-close-secondary>Close</button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="demo-dialog" data-demo-dialog aria-labelledby="demo-dialog-title">
+      <div class="demo-shell">
+        <div class="demo-head">
+          <div>
+            <p class="eyebrow">Guided portal demo</p>
+            <h2 id="demo-dialog-title">Pinpoint Personnel SOP Portal walkthrough</h2>
+          </div>
+          <button class="lightbox-close" type="button" aria-label="Close demo" data-demo-close>&times;</button>
+        </div>
+        <div class="demo-layout">
+          <aside class="demo-steps" aria-label="Demo sections" data-demo-steps></aside>
+          <figure class="demo-screen">
+            <img src="./assets/demo/01-staff-dashboard.png" alt="SOP Portal guided demo screen" data-demo-image />
+          </figure>
+          <aside class="demo-copy">
+            <span class="mini-label" data-demo-kicker>Staff portal</span>
+            <h3 data-demo-title>Staff dashboard</h3>
+            <p data-demo-text>Start from the branded staff portal where employees search approved SOPs, browse sections, and open current procedures.</p>
+            <div class="demo-controls">
+              <button class="button secondary" type="button" data-demo-prev>Previous</button>
+              <button class="button primary" type="button" data-demo-next>Next</button>
+            </div>
+          </aside>
         </div>
       </div>
     </dialog>
