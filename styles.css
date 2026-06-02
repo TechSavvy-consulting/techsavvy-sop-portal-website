@@ -401,7 +401,7 @@ details p { padding-top: 12px; }
   .hero-metrics div { min-height: auto; }
   .video-card, .video-stage, .managed-card, .lightbox { border-radius: 20px; }
   .section { padding-left: 16px; padding-right: 16px; }
-  h1 { font-size: clamp(42px, 14vw, 64px); }
+  h1 { font-size: clamp(31px, 10vw, 46px); }
   h2 { font-size: clamp(31px, 10vw, 46px); }
   .lightbox-grid { grid-template-columns: 1fr; }
   .lightbox-copy { border-left: 0; border-top: 1px solid var(--line); }
