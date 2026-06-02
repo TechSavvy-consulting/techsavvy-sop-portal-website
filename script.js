@@ -21,122 +21,126 @@ const demoTitle = document.querySelector("[data-demo-title]");
 const demoText = document.querySelector("[data-demo-text]");
 const demoPrev = document.querySelector("[data-demo-prev]");
 const demoNext = document.querySelector("[data-demo-next]");
+const demoImagePrev = document.querySelector("[data-demo-image-prev]");
+const demoImageNext = document.querySelector("[data-demo-image-next]");
+const demoImageCount = document.querySelector("[data-demo-image-count]");
 let lastTrigger = null;
 let activeDemoIndex = 0;
+let activeDemoImageIndex = 0;
 
 const demoTourSteps = [
   {
     group: "Staff portal",
     title: "Staff dashboard",
-    image: "./assets/demo/01-staff-dashboard.png",
+    images: ["./assets/demo/01-staff-dashboard-1.png", "./assets/demo/01-staff-dashboard-2.png", "./assets/demo/01-staff-dashboard-3.png"],
     text: "Employees start in a branded portal with searchable SOPs, section filters, pinned items, and quick access to approved procedures."
   },
   {
     group: "Staff portal",
     title: "SOP detail view",
-    image: "./assets/demo/02-staff-sop-detail.png",
+    images: ["./assets/demo/02-staff-sop-detail-1.png", "./assets/demo/02-staff-sop-detail-2.png"],
     text: "Each SOP shows ownership, review timing, attachments, export options, change suggestions, read confirmation, checklist runs, and training actions."
   },
   {
     group: "Mobile access",
     title: "QR code access",
-    image: "./assets/demo/03-staff-qr-code.png",
+    images: ["./assets/demo/03-staff-qr-code-1.png", "./assets/demo/03-staff-qr-code-2.png", "./assets/demo/03-staff-qr-code-3.png"],
     text: "QR codes let staff open the right procedure from a phone or tablet at the workstation, office area, or point of work."
   },
   {
     group: "Staff portal",
     title: "Checklist run",
-    image: "./assets/demo/04-staff-checklist.png",
+    images: ["./assets/demo/04-staff-checklist-1.png", "./assets/demo/04-staff-checklist-2.png", "./assets/demo/04-staff-checklist-3.png"],
     text: "Checklist-style SOPs turn repeatable work into guided task runs with a completion trail."
   },
   {
     group: "Training",
     title: "Training quiz",
-    image: "./assets/demo/05-staff-training.png",
+    images: ["./assets/demo/05-staff-training-1.png", "./assets/demo/05-staff-training-2.png", "./assets/demo/05-staff-training-3.png"],
     text: "Training questions confirm understanding and help managers create a repeatable onboarding path."
   },
   {
     group: "Support",
     title: "Support request",
-    image: "./assets/demo/06-support-request.png",
+    images: ["./assets/demo/06-support-request-1.png", "./assets/demo/06-support-request-2.png"],
     text: "Staff and managers can request help from the portal instead of chasing support through scattered messages."
   },
   {
     group: "Help",
     title: "Portal guide",
-    image: "./assets/demo/07-help-guide.png",
+    images: ["./assets/demo/07-help-guide-1.png", "./assets/demo/07-help-guide-2.png", "./assets/demo/07-help-guide-3.png"],
     text: "The help guide explains common portal workflows so users can find their way without extra training material."
   },
   {
     group: "Admin portal",
     title: "Health dashboard",
-    image: "./assets/demo/08-admin-dashboard.png",
+    images: ["./assets/demo/08-admin-dashboard-1.png", "./assets/demo/08-admin-dashboard-2.png"],
     text: "Managers see portal health, SOP counts, approvals, drafts, user status, and items needing attention."
   },
   {
     group: "Admin portal",
     title: "SOP editor",
-    image: "./assets/demo/09-admin-sop-editor.png",
+    images: ["./assets/demo/09-admin-sop-editor-1.png", "./assets/demo/09-admin-sop-editor-2.png", "./assets/demo/09-admin-sop-editor-3.png"],
     text: "Managers can create, edit, duplicate, approve, archive, attach files, and maintain procedure content from one place."
   },
   {
     group: "Admin portal",
     title: "Sections",
-    image: "./assets/demo/10-admin-sections.png",
+    images: ["./assets/demo/10-admin-sections-1.png", "./assets/demo/10-admin-sections-2.png"],
     text: "Sections organize SOPs around departments, responsibilities, or business workflows so staff can browse naturally."
   },
   {
     group: "Training",
     title: "Training and runs",
-    image: "./assets/demo/11-admin-training-runs.png",
+    images: ["./assets/demo/11-admin-training-runs-1.png", "./assets/demo/11-admin-training-runs-2.png", "./assets/demo/11-admin-training-runs-3.png"],
     text: "Training and run history help managers track completion and follow up when procedures need accountability."
   },
   {
     group: "AI setup",
     title: "SOP generator",
-    image: "./assets/demo/12-admin-generator.png",
+    images: ["./assets/demo/12-admin-generator-1.png", "./assets/demo/12-admin-generator-2.png", "./assets/demo/12-admin-generator-3.png"],
     text: "The generator helps turn a rough description into a structured SOP draft that managers review before publishing."
   },
   {
     group: "AI setup",
     title: "SOP import",
-    image: "./assets/demo/13-admin-import.png",
+    images: ["./assets/demo/13-admin-import-1.png", "./assets/demo/13-admin-import-2.png", "./assets/demo/13-admin-import-3.png"],
     text: "Existing SOP content can be imported and reshaped into the portal instead of starting from an empty library."
   },
   {
     group: "Improvement",
     title: "Change requests",
-    image: "./assets/demo/14-admin-change-requests.png",
+    images: ["./assets/demo/14-admin-change-requests-1.png", "./assets/demo/14-admin-change-requests-2.png"],
     text: "Staff suggestions flow to managers for review, helping procedures stay current without losing approval control."
   },
   {
     group: "Admin portal",
     title: "Users and logins",
-    image: "./assets/demo/15-admin-users.png",
+    images: ["./assets/demo/15-admin-users-1.png", "./assets/demo/15-admin-users-2.png"],
     text: "User controls keep access organized for admins, managers, staff, and training workflows."
   },
   {
     group: "Branding",
     title: "Brand settings",
-    image: "./assets/demo/16-admin-branding.png",
+    images: ["./assets/demo/16-admin-branding-1.png", "./assets/demo/16-admin-branding-2.png"],
     text: "The portal can be branded with the customer's company name, colors, logo, support details, and portal identity."
   },
   {
     group: "Support",
     title: "Support requests",
-    image: "./assets/demo/17-admin-support-requests.png",
+    images: ["./assets/demo/17-admin-support-requests-1.png", "./assets/demo/17-admin-support-requests-2.png"],
     text: "Managers can review support requests from the portal and keep operational issues connected to the SOP system."
   },
   {
     group: "Admin portal",
     title: "Backup and restore",
-    image: "./assets/demo/18-admin-backup-restore.png",
+    images: ["./assets/demo/18-admin-backup-restore-1.png", "./assets/demo/18-admin-backup-restore-2.png"],
     text: "Backup and restore tools help protect the SOP library during rollout, updates, and maintenance."
   },
   {
     group: "Admin portal",
     title: "Advanced tools",
-    image: "./assets/demo/19-admin-advanced.png",
+    images: ["./assets/demo/19-admin-advanced-1.png", "./assets/demo/19-admin-advanced-2.png"],
     text: "Advanced controls support maintenance tasks for a managed portal without exposing the real production environment in this demo."
   }
 ];
@@ -221,15 +225,25 @@ if (demoForm) {
   });
 }
 
-function renderDemoStep(index) {
+function renderDemoImage() {
   if (!demoImage || !demoKicker || !demoTitle || !demoText) return;
-  activeDemoIndex = (index + demoTourSteps.length) % demoTourSteps.length;
   const step = demoTourSteps[activeDemoIndex];
-  demoImage.src = step.image;
-  demoImage.alt = `${step.title} screenshot from the SOP Portal demo`;
+  const images = step.images || [];
+  activeDemoImageIndex = Math.min(Math.max(activeDemoImageIndex, 0), Math.max(images.length - 1, 0));
+  demoImage.src = images[activeDemoImageIndex] || "";
+  demoImage.alt = `${step.title} screenshot ${activeDemoImageIndex + 1} from the SOP Portal demo`;
   demoKicker.textContent = step.group;
   demoTitle.textContent = step.title;
   demoText.textContent = step.text;
+  if (demoImageCount) demoImageCount.textContent = `View ${activeDemoImageIndex + 1} of ${images.length}`;
+  if (demoImagePrev) demoImagePrev.disabled = activeDemoImageIndex === 0;
+  if (demoImageNext) demoImageNext.disabled = activeDemoImageIndex >= images.length - 1;
+}
+
+function renderDemoStep(index) {
+  activeDemoIndex = (index + demoTourSteps.length) % demoTourSteps.length;
+  activeDemoImageIndex = 0;
+  renderDemoImage();
   if (demoPrev) demoPrev.disabled = activeDemoIndex === 0;
   if (demoNext) demoNext.textContent = activeDemoIndex === demoTourSteps.length - 1 ? "Start over" : "Next";
   document.querySelectorAll("[data-demo-step]").forEach((button) => {
@@ -271,6 +285,15 @@ demoOpenButtons.forEach((button) => button.addEventListener("click", openDemo));
 if (demoClose) demoClose.addEventListener("click", closeDemo);
 if (demoPrev) demoPrev.addEventListener("click", () => renderDemoStep(Math.max(0, activeDemoIndex - 1)));
 if (demoNext) demoNext.addEventListener("click", () => renderDemoStep(activeDemoIndex === demoTourSteps.length - 1 ? 0 : activeDemoIndex + 1));
+if (demoImagePrev) demoImagePrev.addEventListener("click", () => {
+  activeDemoImageIndex = Math.max(0, activeDemoImageIndex - 1);
+  renderDemoImage();
+});
+if (demoImageNext) demoImageNext.addEventListener("click", () => {
+  const images = demoTourSteps[activeDemoIndex].images || [];
+  activeDemoImageIndex = Math.min(images.length - 1, activeDemoImageIndex + 1);
+  renderDemoImage();
+});
 
 if (demoDialog) {
   demoDialog.addEventListener("click", (event) => {
