@@ -19,11 +19,10 @@ const demoImage = document.querySelector("[data-demo-image]");
 const demoKicker = document.querySelector("[data-demo-kicker]");
 const demoTitle = document.querySelector("[data-demo-title]");
 const demoText = document.querySelector("[data-demo-text]");
-const demoPrev = document.querySelector("[data-demo-prev]");
-const demoNext = document.querySelector("[data-demo-next]");
 const demoImagePrev = document.querySelector("[data-demo-image-prev]");
 const demoImageNext = document.querySelector("[data-demo-image-next]");
 const demoImageCount = document.querySelector("[data-demo-image-count]");
+const demoDots = document.querySelector("[data-demo-dots]");
 let lastTrigger = null;
 let activeDemoIndex = 0;
 let activeDemoImageIndex = 0;
@@ -32,7 +31,7 @@ const demoTourSteps = [
   {
     group: "Staff portal",
     title: "Staff dashboard",
-    images: ["./assets/demo/01-staff-dashboard-1.png", "./assets/demo/01-staff-dashboard-2.png", "./assets/demo/01-staff-dashboard-3.png"],
+    images: ["./assets/demo/01-staff-dashboard-2.png", "./assets/demo/01-staff-dashboard-3.png"],
     text: "Employees start in a branded portal with searchable SOPs, section filters, pinned items, and quick access to approved procedures."
   },
   {
@@ -44,7 +43,7 @@ const demoTourSteps = [
   {
     group: "Mobile access",
     title: "QR code access",
-    images: ["./assets/demo/03-staff-qr-code-1.png", "./assets/demo/03-staff-qr-code-2.png", "./assets/demo/03-staff-qr-code-3.png"],
+    images: ["./assets/demo/03-staff-qr-code-2.png", "./assets/demo/03-staff-qr-code-3.png"],
     text: "QR codes let staff open the right procedure from a phone or tablet at the workstation, office area, or point of work."
   },
   {
@@ -56,7 +55,7 @@ const demoTourSteps = [
   {
     group: "Training",
     title: "Training quiz",
-    images: ["./assets/demo/05-staff-training-1.png", "./assets/demo/05-staff-training-2.png", "./assets/demo/05-staff-training-3.png"],
+    images: ["./assets/demo/05-staff-training-2.png", "./assets/demo/05-staff-training-3.png"],
     text: "Training questions confirm understanding and help managers create a repeatable onboarding path."
   },
   {
@@ -238,14 +237,27 @@ function renderDemoImage() {
   if (demoImageCount) demoImageCount.textContent = `View ${activeDemoImageIndex + 1} of ${images.length}`;
   if (demoImagePrev) demoImagePrev.disabled = activeDemoImageIndex === 0;
   if (demoImageNext) demoImageNext.disabled = activeDemoImageIndex >= images.length - 1;
+  if (demoDots) {
+    demoDots.innerHTML = "";
+    images.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.className = "demo-dot";
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Show screenshot ${index + 1}`);
+      dot.classList.toggle("is-active", index === activeDemoImageIndex);
+      dot.addEventListener("click", () => {
+        activeDemoImageIndex = index;
+        renderDemoImage();
+      });
+      demoDots.appendChild(dot);
+    });
+  }
 }
 
 function renderDemoStep(index) {
   activeDemoIndex = (index + demoTourSteps.length) % demoTourSteps.length;
   activeDemoImageIndex = 0;
   renderDemoImage();
-  if (demoPrev) demoPrev.disabled = activeDemoIndex === 0;
-  if (demoNext) demoNext.textContent = activeDemoIndex === demoTourSteps.length - 1 ? "Start over" : "Next";
   document.querySelectorAll("[data-demo-step]").forEach((button) => {
     const isActive = Number(button.getAttribute("data-demo-step")) === activeDemoIndex;
     button.classList.toggle("is-active", isActive);
@@ -283,8 +295,6 @@ function closeDemo() {
 
 demoOpenButtons.forEach((button) => button.addEventListener("click", openDemo));
 if (demoClose) demoClose.addEventListener("click", closeDemo);
-if (demoPrev) demoPrev.addEventListener("click", () => renderDemoStep(Math.max(0, activeDemoIndex - 1)));
-if (demoNext) demoNext.addEventListener("click", () => renderDemoStep(activeDemoIndex === demoTourSteps.length - 1 ? 0 : activeDemoIndex + 1));
 if (demoImagePrev) demoImagePrev.addEventListener("click", () => {
   activeDemoImageIndex = Math.max(0, activeDemoImageIndex - 1);
   renderDemoImage();
