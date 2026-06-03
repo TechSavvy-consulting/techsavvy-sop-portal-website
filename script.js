@@ -50,7 +50,7 @@ const demoTourSteps = [
   {
     group: "Staff portal",
     title: "Checklist run",
-    images: ["./assets/demo/04-staff-checklist-1.png", "./assets/demo/04-staff-checklist-2.png", "./assets/demo/04-staff-checklist-3.png"],
+    images: ["./assets/demo/04-staff-checklist-1.png", "./assets/demo/04-staff-checklist-2.png"],
     text: "Checklist-style SOPs turn repeatable work into guided task runs with a completion trail."
   },
   {
