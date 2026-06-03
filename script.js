@@ -56,7 +56,7 @@ const demoTourSteps = [
   {
     group: "Training",
     title: "Training quiz",
-    images: ["./assets/demo/05-staff-training-2.png", "./assets/demo/05-staff-training-3.png"],
+    images: ["./assets/demo/05-staff-training-2.png"],
     text: "Training questions confirm understanding and help managers create a repeatable onboarding path."
   },
   {
@@ -110,37 +110,37 @@ const demoTourSteps = [
   {
     group: "Improvement",
     title: "Change requests",
-    images: ["./assets/demo/14-admin-change-requests-1.png", "./assets/demo/14-admin-change-requests-2.png"],
+    images: ["./assets/demo/14-admin-change-requests-1.png"],
     text: "Staff suggestions flow to managers for review, helping procedures stay current without losing approval control."
   },
   {
     group: "Admin portal",
     title: "Users and logins",
-    images: ["./assets/demo/15-admin-users-1.png", "./assets/demo/15-admin-users-2.png"],
+    images: ["./assets/demo/15-admin-users-1.png", "./assets/demo/15-admin-users-2.png", "./assets/demo/15-admin-users-3.png", "./assets/demo/15-admin-users-4.png"],
     text: "User controls keep access organized for admins, managers, staff, and training workflows."
   },
   {
     group: "Branding",
     title: "Brand settings",
-    images: ["./assets/demo/16-admin-branding-1.png", "./assets/demo/16-admin-branding-2.png"],
+    images: ["./assets/demo/16-admin-branding-1.png", "./assets/demo/16-admin-branding-3.png", "./assets/demo/16-admin-branding-4.png"],
     text: "The portal can be branded with the customer's company name, colors, logo, support details, and portal identity."
   },
   {
     group: "Support",
     title: "Support requests",
-    images: ["./assets/demo/17-admin-support-requests-1.png", "./assets/demo/17-admin-support-requests-2.png"],
+    images: ["./assets/demo/17-admin-support-requests-1.png"],
     text: "Managers can review support requests from the portal and keep operational issues connected to the SOP system."
   },
   {
     group: "Admin portal",
     title: "Backup and restore",
-    images: ["./assets/demo/18-admin-backup-restore-1.png", "./assets/demo/18-admin-backup-restore-2.png"],
+    images: ["./assets/demo/18-admin-backup-restore-1.png", "./assets/demo/18-admin-backup-restore-2.png", "./assets/demo/18-admin-backup-restore-3.png", "./assets/demo/18-admin-backup-restore-4.png"],
     text: "Backup and restore tools help protect the SOP library during rollout, updates, and maintenance."
   },
   {
     group: "Admin portal",
     title: "Advanced tools",
-    images: ["./assets/demo/19-admin-advanced-1.png", "./assets/demo/19-admin-advanced-2.png"],
+    images: ["./assets/demo/19-admin-advanced-1.png", "./assets/demo/19-admin-advanced-2.png", "./assets/demo/19-admin-advanced-3.png", "./assets/demo/19-admin-advanced-4.png"],
     text: "Advanced controls support maintenance tasks for a managed portal without exposing the real production environment in this demo."
   }
 ];
