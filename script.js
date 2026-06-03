@@ -23,9 +23,7 @@ const demoImagePrev = document.querySelector("[data-demo-image-prev]");
 const demoImageNext = document.querySelector("[data-demo-image-next]");
 const demoImageCount = document.querySelector("[data-demo-image-count]");
 const demoDots = document.querySelector("[data-demo-dots]");
-const demoSectionPrev = document.querySelector("[data-demo-section-prev]");
-const demoSectionNext = document.querySelector("[data-demo-section-next]");
-const demoSectionCount = document.querySelector("[data-demo-section-count]");
+const demoMobileList = document.querySelector("[data-demo-mobile-list]");
 let lastTrigger = null;
 let activeDemoIndex = 0;
 let activeDemoImageIndex = 0;
@@ -261,13 +259,48 @@ function renderDemoStep(index) {
   activeDemoIndex = (index + demoTourSteps.length) % demoTourSteps.length;
   activeDemoImageIndex = 0;
   renderDemoImage();
-  if (demoSectionCount) demoSectionCount.textContent = `Section ${activeDemoIndex + 1} of ${demoTourSteps.length}`;
-  if (demoSectionPrev) demoSectionPrev.disabled = activeDemoIndex === 0;
-  if (demoSectionNext) demoSectionNext.disabled = activeDemoIndex === demoTourSteps.length - 1;
   document.querySelectorAll("[data-demo-step]").forEach((button) => {
     const isActive = Number(button.getAttribute("data-demo-step")) === activeDemoIndex;
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-current", isActive ? "step" : "false");
+  });
+}
+
+function buildMobileDemoList() {
+  if (!demoMobileList || demoMobileList.children.length) return;
+  demoTourSteps.forEach((step, stepIndex) => {
+    const section = document.createElement("section");
+    section.className = "demo-mobile-section";
+
+    const label = document.createElement("span");
+    label.className = "mini-label";
+    label.textContent = step.group;
+
+    const title = document.createElement("h3");
+    title.textContent = step.title;
+
+    const text = document.createElement("p");
+    text.textContent = step.text;
+
+    section.append(label, title, text);
+
+    step.images.forEach((image, imageIndex) => {
+      const shot = document.createElement("figure");
+      shot.className = "demo-mobile-shot";
+
+      const img = document.createElement("img");
+      img.src = image;
+      img.loading = "lazy";
+      img.alt = `${step.title} screenshot ${imageIndex + 1}`;
+
+      const caption = document.createElement("span");
+      caption.textContent = `${stepIndex + 1}.${imageIndex + 1}`;
+
+      shot.append(img, caption);
+      section.appendChild(shot);
+    });
+
+    demoMobileList.appendChild(section);
   });
 }
 
@@ -288,6 +321,7 @@ function openDemo() {
   if (!demoDialog) return;
   pauseOtherVideos();
   buildDemoSteps();
+  buildMobileDemoList();
   renderDemoStep(activeDemoIndex);
   if (typeof demoDialog.showModal === "function") demoDialog.showModal();
   else demoDialog.setAttribute("open", "");
@@ -301,8 +335,6 @@ function closeDemo() {
 
 demoOpenButtons.forEach((button) => button.addEventListener("click", openDemo));
 if (demoClose) demoClose.addEventListener("click", closeDemo);
-if (demoSectionPrev) demoSectionPrev.addEventListener("click", () => renderDemoStep(Math.max(0, activeDemoIndex - 1)));
-if (demoSectionNext) demoSectionNext.addEventListener("click", () => renderDemoStep(Math.min(demoTourSteps.length - 1, activeDemoIndex + 1)));
 if (demoImagePrev) demoImagePrev.addEventListener("click", () => {
   activeDemoImageIndex = Math.max(0, activeDemoImageIndex - 1);
   renderDemoImage();

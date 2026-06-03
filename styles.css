@@ -466,7 +466,7 @@ details p { padding-top: 12px; }
 .demo-step.is-active { color: var(--white); border-color: rgba(50,224,208,.58); background: rgba(50,224,208,.16); }
 .demo-step strong { font-size: 14px; line-height: 1.15; }
 .demo-step span { color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; }
-.demo-mobile-section-controls { display: none; }
+.demo-mobile-list { display: none; }
 .demo-screen {
   display: grid;
   gap: 14px;
@@ -560,54 +560,6 @@ details p { padding-top: 12px; }
   .demo-layout { grid-template-columns: 1fr; }
   .demo-steps { display: flex; gap: 8px; max-height: none; overflow-x: auto; padding: 14px; border-right: 0; border-bottom: 1px solid var(--line); }
   .demo-step { min-width: 178px; }
-  .demo-mobile-section-controls {
-    display: flex;
-    width: fit-content;
-    max-width: calc(100% - 28px);
-    margin: 12px auto;
-    gap: 12px;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 10px;
-    border: 1px solid rgba(247,255,254,.18);
-    border-radius: 999px;
-    background: rgba(247,255,254,.07);
-    box-shadow: 0 16px 40px rgba(0,0,0,.20);
-    backdrop-filter: blur(10px);
-  }
-  .demo-mobile-section-controls button {
-    display: grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    border: 1px solid rgba(50,224,208,.34);
-    border-radius: 50%;
-    color: var(--white);
-    background: rgba(50,224,208,.14);
-    cursor: pointer;
-    font-size: 30px;
-    font-weight: 900;
-    line-height: 1;
-  }
-  .demo-mobile-section-controls button:hover, .demo-mobile-section-controls button:focus-visible {
-    border-color: rgba(50,224,208,.72);
-    color: var(--ink);
-    background: var(--teal);
-  }
-  .demo-mobile-section-controls button:disabled {
-    cursor: not-allowed;
-    color: rgba(247,255,254,.36);
-    border-color: rgba(247,255,254,.14);
-    background: rgba(247,255,254,.06);
-    box-shadow: none;
-  }
-  .demo-mobile-section-controls span {
-    color: #dff8f7;
-    font-size: 14px;
-    font-weight: 950;
-    white-space: nowrap;
-  }
   .demo-copy { border-left: 0; border-top: 1px solid var(--line); }
   .demo-screen img { max-height: 62svh; }
 }
@@ -631,17 +583,47 @@ details p { padding-top: 12px; }
   .lightbox-grid { grid-template-columns: 1fr; }
   .lightbox-copy { border-left: 0; border-top: 1px solid var(--line); }
   .lightbox-image-wrap { min-height: 220px; padding-top: 56px; }
-  .demo-dialog { width: 100vw; max-height: 100svh; border-radius: 0; }
-  .demo-shell { min-height: 100svh; }
+  .demo-dialog { width: 100vw; max-height: 100svh; overflow-y: auto; border-radius: 0; }
+  .demo-shell { min-height: auto; }
   .demo-head { padding: 18px 16px 16px; }
   .demo-head h2 { padding-right: 48px; }
-  .demo-screen { padding: 12px; }
-  .demo-screen img { max-height: 48svh; border-radius: 12px; }
-  .demo-image-nav { width: 38px; height: 50px; font-size: 28px; }
-  .demo-image-nav-prev { left: 8px; }
-  .demo-image-nav-next { right: 8px; }
-  .demo-copy { padding: 18px 16px 22px; }
-  .demo-mobile-section-controls { margin-top: 10px; margin-bottom: 10px; }
+  .demo-steps, .demo-screen, .demo-copy { display: none; }
+  .demo-mobile-list {
+    display: grid;
+    gap: 18px;
+    padding: 16px;
+    background: linear-gradient(180deg, rgba(247,255,254,.04), rgba(3,22,30,.28));
+  }
+  .demo-mobile-section {
+    display: grid;
+    gap: 14px;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: rgba(247,255,254,.065);
+  }
+  .demo-mobile-section h3 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.15;
+  }
+  .demo-mobile-section p { margin: 0; }
+  .demo-mobile-shot {
+    display: grid;
+    gap: 8px;
+  }
+  .demo-mobile-shot img {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 12px;
+    box-shadow: 0 14px 36px rgba(0,0,0,.24);
+  }
+  .demo-mobile-shot span {
+    color: #dff8f7;
+    font-size: 12px;
+    font-weight: 850;
+    text-align: center;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
