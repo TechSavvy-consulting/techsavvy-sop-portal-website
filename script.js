@@ -212,14 +212,14 @@ if (demoForm) {
 
       if (!response.ok) throw new Error("Formspree rejected the request.");
       demoForm.reset();
-      setDemoStatus("Thanks, your demo request was sent. TechSavvy will follow up soon.");
+      setDemoStatus("Thanks, your request was sent. TechSavvy will follow up soon to schedule a call.");
     } catch (error) {
       setDemoStatus("The form could not send right now. Please email sales@techsavvy.consulting or call 918.400.2424.", "error");
     } finally {
       demoForm.classList.remove("is-sending");
       if (demoSubmit) {
         demoSubmit.disabled = false;
-        demoSubmit.textContent = originalLabel || "Request demo";
+        demoSubmit.textContent = originalLabel || "BOOK A CALL";
       }
     }
   });
