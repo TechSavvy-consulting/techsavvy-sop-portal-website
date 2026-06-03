@@ -466,6 +466,7 @@ details p { padding-top: 12px; }
 .demo-step.is-active { color: var(--white); border-color: rgba(50,224,208,.58); background: rgba(50,224,208,.16); }
 .demo-step strong { font-size: 14px; line-height: 1.15; }
 .demo-step span { color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+.demo-mobile-section-controls { display: none; }
 .demo-screen {
   display: grid;
   gap: 14px;
@@ -559,6 +560,36 @@ details p { padding-top: 12px; }
   .demo-layout { grid-template-columns: 1fr; }
   .demo-steps { display: flex; gap: 8px; max-height: none; overflow-x: auto; padding: 14px; border-right: 0; border-bottom: 1px solid var(--line); }
   .demo-step { min-width: 178px; }
+  .demo-mobile-section-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(247,255,254,.04);
+  }
+  .demo-mobile-section-controls button {
+    min-height: 42px;
+    padding: 9px 11px;
+    border: 1px solid rgba(50,224,208,.34);
+    border-radius: 999px;
+    color: var(--white);
+    background: rgba(50,224,208,.10);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 900;
+  }
+  .demo-mobile-section-controls button:disabled {
+    cursor: not-allowed;
+    opacity: .44;
+  }
+  .demo-mobile-section-controls span {
+    color: #dff8f7;
+    font-size: 13px;
+    font-weight: 950;
+    white-space: nowrap;
+  }
   .demo-copy { border-left: 0; border-top: 1px solid var(--line); }
   .demo-screen img { max-height: 62svh; }
 }
@@ -592,6 +623,7 @@ details p { padding-top: 12px; }
   .demo-image-nav-prev { left: 8px; }
   .demo-image-nav-next { right: 8px; }
   .demo-copy { padding: 18px 16px 22px; }
+  .demo-mobile-section-controls { grid-template-columns: 1fr; text-align: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

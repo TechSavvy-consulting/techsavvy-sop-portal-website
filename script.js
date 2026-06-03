@@ -23,6 +23,9 @@ const demoImagePrev = document.querySelector("[data-demo-image-prev]");
 const demoImageNext = document.querySelector("[data-demo-image-next]");
 const demoImageCount = document.querySelector("[data-demo-image-count]");
 const demoDots = document.querySelector("[data-demo-dots]");
+const demoSectionPrev = document.querySelector("[data-demo-section-prev]");
+const demoSectionNext = document.querySelector("[data-demo-section-next]");
+const demoSectionCount = document.querySelector("[data-demo-section-count]");
 let lastTrigger = null;
 let activeDemoIndex = 0;
 let activeDemoImageIndex = 0;
@@ -258,6 +261,9 @@ function renderDemoStep(index) {
   activeDemoIndex = (index + demoTourSteps.length) % demoTourSteps.length;
   activeDemoImageIndex = 0;
   renderDemoImage();
+  if (demoSectionCount) demoSectionCount.textContent = `Section ${activeDemoIndex + 1} of ${demoTourSteps.length}`;
+  if (demoSectionPrev) demoSectionPrev.disabled = activeDemoIndex === 0;
+  if (demoSectionNext) demoSectionNext.disabled = activeDemoIndex === demoTourSteps.length - 1;
   document.querySelectorAll("[data-demo-step]").forEach((button) => {
     const isActive = Number(button.getAttribute("data-demo-step")) === activeDemoIndex;
     button.classList.toggle("is-active", isActive);
@@ -295,6 +301,8 @@ function closeDemo() {
 
 demoOpenButtons.forEach((button) => button.addEventListener("click", openDemo));
 if (demoClose) demoClose.addEventListener("click", closeDemo);
+if (demoSectionPrev) demoSectionPrev.addEventListener("click", () => renderDemoStep(Math.max(0, activeDemoIndex - 1)));
+if (demoSectionNext) demoSectionNext.addEventListener("click", () => renderDemoStep(Math.min(demoTourSteps.length - 1, activeDemoIndex + 1)));
 if (demoImagePrev) demoImagePrev.addEventListener("click", () => {
   activeDemoImageIndex = Math.max(0, activeDemoImageIndex - 1);
   renderDemoImage();
