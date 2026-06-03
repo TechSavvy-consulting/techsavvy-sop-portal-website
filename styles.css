@@ -374,6 +374,7 @@ details p { padding-top: 12px; }
 .contact-copy { justify-self: end; }
 .contact-form { justify-self: start; display: grid; gap: 15px; padding: 28px; border: 1px solid var(--line-strong); border-radius: var(--radius); background: rgba(247,255,254,.07); box-shadow: var(--shadow); }
 .contact-methods { display: grid; gap: 10px; margin-top: 30px; }
+.contact-logo { width: min(280px, 76vw); height: auto; margin-bottom: 4px; }
 .contact-methods a, .contact-methods span { color: #dffafa; font-weight: 900; }
 .contact-form label { display: grid; gap: 8px; color: #e8ffff; font-weight: 900; }
 .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 13px 14px; color: var(--white); border: 1px solid rgba(255,255,255,.22); border-radius: 13px; background: rgba(0,0,0,.20); }
